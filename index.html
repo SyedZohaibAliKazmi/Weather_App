@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/c056fd8e57.js" crossorigin="anonymous"></script>
-
-</head>
-<body>
-<div class="container">
-    <div class="search-box">
-        <i class='bx bxs-map'></i>
-        <input type="text" placeholder="Type Your City" required>
-        <button class="bx bx-search"></button>
-    </div>
-    <div class="weather-box">
-        <div class="box">
-            <div class="info-weather">
-                <div class="weather">
-                    <img src="./images/welcome.png">
-                    <p class="temperature">Hello</p>
-                    <p id="feelsLike"> </p>
-                    <p class="description"></p>
-                </div>
-            </div>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/c056fd8e57.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <form id="myform">
+        <div class="search-box">
+          <i class="bx bxs-map"></i>
+          <input type="text" placeholder="Type Your City" required />
+          <button id="btn" class="bx bx-search"></button>
         </div>
-    </div>
-    <div class="weather-details">
-        <div class="humidity">
-            <i class='bx bx-water'></i>
-            <div class="text">
-                <div id="infoHumidity"></div>
+      </form>
+      <div class="weather-box">
+        <div class="box">
+          <div class="info-weather">
+            <div class="weather">
+              <p id="message"></p>
+              <img src="./images/welcome.png" />
+              <p class="temperature">Hello</p>
+              <p id="feelsLike"></p>
+              <p class="description"></p>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="weather-details">
+        <div class="humidity">
+          <i class="bx bx-water"></i>
+          <div class="text">
+            <div id="infoHumidity"></div>
+          </div>
         </div>
         <div class="Wind">
-            <i class='bx bx-wind'></i>&nbsp;&nbsp;
-            <div class="text">
-                <div id="infoWind"></div>
-            </div>
+          <i class="bx bx-wind"></i>&nbsp;&nbsp;
+          <div class="text">
+            <div id="infoWind"></div>
+          </div>
         </div>
-        
-    </div>
-    <div class="notFound">
+      </div>
+      <div class="notFound">
         <div class="box">
-            <img src="./images/Error.png" >
-            <p>Oop! Location not found</p>
+          <img src="./images/Error.png" />
+          <p>Oop! Location not found</p>
         </div>
+      </div>
     </div>
-    
-</div>
-
-
 
     <script src="./app.js"></script>
-</body>
+  </body>
 </html>
