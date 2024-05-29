@@ -24,6 +24,7 @@ const formHandler = async (event) => {
       image.src = "./images/load.gif";
       break;
   }
+  cities.innerHTML = ""
   temperature.innerText = "loading...";
   feelsLike.innerHTML = "";
   description.innerHTML = "";
