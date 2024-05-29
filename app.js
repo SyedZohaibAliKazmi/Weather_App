@@ -1,3 +1,5 @@
+// =============================================== weather App =============================
+
 const form = document.querySelector("#myform");
 const container = document.querySelector(".container");
 const search = document.querySelector(".search-box");
@@ -9,6 +11,7 @@ const temperature = document.querySelector(".weather-box .temperature");
 const description = document.querySelector(".weather-box .description");
 const humidity = document.querySelector(".weather-details .humidity");
 const wind = document.querySelector(".weather-details .Wind");
+const cities = document.querySelector("#cities");
 const Error404 = document.querySelector(".notFound");
 const API_Key = "107f0a4900fe176149bf71880f2351a2";
 
@@ -35,10 +38,14 @@ const formHandler = async (event) => {
     .then((response) => response.json())
     .then((json) => {
       if (json.cod == "404") {
-        container.style.height = "400px";
+        container.style.height = "420px";
         weatherBox.classList.remove("active");
         weatherDetails.classList.remove("active");
         Error404.classList.add("active");
+        temperature.innerText = ""; // Clear loading text if error occurs
+      image.src = ""; // Clear loading image if error occurs
+      btn.disabled = false;
+      form.reset();
         return;
       }
       container.style.height = "555px";
@@ -46,11 +53,7 @@ const formHandler = async (event) => {
       weatherDetails.classList.add("active");
       Error404.classList.remove("active");
 
-      //   const image = document.querySelector(".weather-box  img");
-      //   const temperature = document.querySelector(".weather-box .temperature");
-      //   const description = document.querySelector(".weather-box .description");
-      //   const humidity = document.querySelector(".weather-details .humidity");
-      //   const wind = document.querySelector(".weather-details .Wind");
+
 
       switch (json.weather[0].main) {
         case "Clear":
@@ -64,6 +67,11 @@ const formHandler = async (event) => {
         case "Rain":
           image.src = "images/rain.png";
           break;
+
+          case "Drizzle":
+            image.src = "images/rain.png";
+            break;
+  
 
         case "Snow":
           image.src = "images/snow.png";
@@ -81,15 +89,26 @@ const formHandler = async (event) => {
           image.src = "images/mist.png";
           break;
 
+          case "Smoke":
+            image.src = "images/mist.png";
+            break;
+  
+            case "Thunderstorm":
+            image.src = "images/rain.png";
+            break;
+  
+
         default:
           image.src = images / Welcome.png;
       }
+      cities.innerHTML = `${json.name}`;
       temperature.innerHTML = `${parseInt(json.main.temp)}°C`;
       feelsLike.innerHTML = `Feels Like: ${parseInt(json.main.feels_like)}°C`;
       description.innerHTML = `${json.weather[0].main}`;
       infoHumidity.innerHTML = `${parseInt(json.main.humidity)}% `;
       infoWind.innerHTML = `${parseInt(json.wind.speed)}km/h`;
       btn.disabled = false;
+      form.reset();
     });
 };
 form.addEventListener("submit", formHandler);
